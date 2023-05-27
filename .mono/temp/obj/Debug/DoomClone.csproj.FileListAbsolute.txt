@@ -1,0 +1,9 @@
+/home/andrej/Desktop/GodotProjects/DoomClone/.mono/temp/bin/Debug/DoomClone.dll
+/home/andrej/Desktop/GodotProjects/DoomClone/.mono/temp/bin/Debug/DoomClone.pdb
+/home/andrej/Desktop/GodotProjects/DoomClone/.mono/temp/obj/Debug/DoomClone.csproj.AssemblyReference.cache
+/home/andrej/Desktop/GodotProjects/DoomClone/.mono/temp/obj/Debug/DoomClone.GeneratedMSBuildEditorConfig.editorconfig
+/home/andrej/Desktop/GodotProjects/DoomClone/.mono/temp/obj/Debug/DoomClone.AssemblyInfoInputs.cache
+/home/andrej/Desktop/GodotProjects/DoomClone/.mono/temp/obj/Debug/DoomClone.AssemblyInfo.cs
+/home/andrej/Desktop/GodotProjects/DoomClone/.mono/temp/obj/Debug/DoomClone.csproj.CoreCompileInputs.cache
+/home/andrej/Desktop/GodotProjects/DoomClone/.mono/temp/obj/Debug/DoomClone.dll
+/home/andrej/Desktop/GodotProjects/DoomClone/.mono/temp/obj/Debug/DoomClone.pdb
