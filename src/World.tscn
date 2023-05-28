@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/World.cs" type="Script" id=2]
 [ext_resource path="res://src/Plane.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 20, 20 )
@@ -12,7 +13,7 @@ size = Vector2( 20, 20 )
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57086, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 speed = 10.0
 mouseSens = 0.1
 
@@ -24,3 +25,13 @@ transform = Transform( -0.00158827, 0.999999, 0, -0.999999, -0.00158827, 0, 0, 0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture = ExtResource( 4 )
+
+[node name="Enemies" type="Spatial" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.466, 1.5, 0 )
+speed = 1.0
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 9.276 )
+speed = 1.0
