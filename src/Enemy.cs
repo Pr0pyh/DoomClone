@@ -8,14 +8,18 @@ public class Enemy : KinematicBody
 	[Export]
 	float health;
 	
+	public bool hit;
 	AnimationPlayer animPlayer;
 	World world;
+	Timer t;
 
 	public override void _Ready()
 	{
    		world = (World)GetParent().GetParent();
 		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-		health = 10;
+		t = GetNode<Timer>("Timer");
+		health = 100;
+		hit = false;
 	}
 
 	public override void _Process(float delta)
@@ -25,6 +29,16 @@ public class Enemy : KinematicBody
 		Vector3 playerPosNorm = (player.Translation - GlobalTransform.origin).Normalized();
 		if(!animPlayer.IsPlaying())
 			animPlayer.Play("walk");
+			
+		if (hit)
+		{	
+			speed = 0;
+			hit = false;
+			t.Start();
+			Sprite3D sprite = GetNode<Sprite3D>("Sprite3D");
+			sprite.Modulate = new Color(255.0f, 0.0f, 0.0f, 1.0f);
+		}
+			
 		MoveAndSlide(playerPosNorm * speed);
 	}
 
@@ -40,5 +54,11 @@ public class Enemy : KinematicBody
 		if(animName == "kill")
 			QueueFree();
 	}
-
+	
+	private void _on_Timer_timeout()
+	{
+		speed = 1;	
+		Sprite3D sprite = GetNode<Sprite3D>("Sprite3D");
+		sprite.Modulate = new Color(255.0f, 255.0f, 255.0f, 1.0f);
+	}
 }

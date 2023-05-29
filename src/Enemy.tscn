@@ -57,4 +57,7 @@ reset_on_save = false
 anims/kill = SubResource( 4 )
 anims/walk = SubResource( 3 )
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
