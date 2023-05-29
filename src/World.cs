@@ -16,11 +16,11 @@ public class World : Spatial
 		player = GetNode<Player>("Player");
 	}
 
-	public void Spawn(Vector3 position)
-	{
-		cube.Translation = position;
-		cube.LookAt(player.Translation, cube.Translation);
-	}
+	// public void Spawn(Vector3 position)
+	// {
+	// 	cube.Translation = position;
+	// 	cube.LookAt(player.Translation, cube.Translation);
+	// }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)

@@ -60,7 +60,7 @@ public class Player : KinematicBody
 		if(Input.IsActionPressed("ui_accept"))
 		{
 			Vector3 position = gun.Shoot();
-			world.Spawn(position);
+			// world.Spawn(position);
 		}
 
 		//update

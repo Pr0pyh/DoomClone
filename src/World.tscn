@@ -29,9 +29,9 @@ texture = ExtResource( 4 )
 [node name="Enemies" type="Spatial" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.466, 1.5, 0 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1, 8.466, 0, 0 )
 speed = 1.0
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 9.276 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 9.276 )
 speed = 1.0

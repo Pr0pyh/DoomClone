@@ -8,19 +8,21 @@ public class Gun : Spatial
 	// private string b = "text";
 	Sprite sprite;
 	RayCast raycast;
+	AnimationPlayer animPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		sprite = GetNode<CanvasLayer>("CanvasLayer").GetNode<Control>("Control").GetNode<Sprite>("Sprite");
 		raycast = GetNode<RayCast>("RayCast");
+		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 	}
 
 	public Vector3 Shoot()
 	{
-		sprite.Modulate = new Color(0.0f, 1.0f, 1.0f, 1.0f);
-		GD.Print("Shot");
+		animPlayer.Play("shoot");
 		if(raycast.IsColliding() &&  ((Node)raycast.GetCollider()).IsInGroup("enemies"))
 		{
+			GD.Print("Enemy");
 			Enemy body = (Enemy)raycast.GetCollider();
 			body.damage(10.0f);
 		}
