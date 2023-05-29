@@ -12,11 +12,13 @@ public class Enemy : KinematicBody
 	AnimationPlayer animPlayer;
 	World world;
 	Timer t;
+	Sprite3D sprite;
 
 	public override void _Ready()
 	{
    		world = (World)GetParent().GetParent();
 		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		sprite = GetNode<Sprite3D>("Sprite3D");
 		t = GetNode<Timer>("Timer");
 		health = 100;
 		hit = false;
@@ -30,15 +32,6 @@ public class Enemy : KinematicBody
 		if(!animPlayer.IsPlaying())
 			animPlayer.Play("walk");
 			
-		if (hit)
-		{	
-			speed = 0;
-			hit = false;
-			t.Start();
-			Sprite3D sprite = GetNode<Sprite3D>("Sprite3D");
-			sprite.Modulate = new Color(255.0f, 0.0f, 0.0f, 1.0f);
-		}
-			
 		MoveAndSlide(playerPosNorm * speed);
 	}
 
@@ -46,7 +39,15 @@ public class Enemy : KinematicBody
 	{
 		health -= number;
 		if(health<0)
+		{
 			animPlayer.Play("kill");
+		}
+		else
+		{
+			animPlayer.Play("hurt");
+			speed = 0;
+			t.Start();
+		}
 	}
 
 	public void _on_AnimationPlayer_animation_finished(String animName)
@@ -57,8 +58,6 @@ public class Enemy : KinematicBody
 	
 	private void _on_Timer_timeout()
 	{
-		speed = 1;	
-		Sprite3D sprite = GetNode<Sprite3D>("Sprite3D");
-		sprite.Modulate = new Color(255.0f, 255.0f, 255.0f, 1.0f);
+		speed = 1;
 	}
 }

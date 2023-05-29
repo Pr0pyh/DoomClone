@@ -24,7 +24,7 @@ public class Gun : Spatial
 		{
 			GD.Print("Enemy");
 			Enemy body = (Enemy)raycast.GetCollider();
-			body.damage(1.0f);
+			body.damage(5.0f);
 			body.hit = true;
 		}
 		return raycast.GetCollisionPoint();
