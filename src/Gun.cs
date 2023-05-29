@@ -19,7 +19,11 @@ public class Gun : Spatial
 	{
 		sprite.Modulate = new Color(0.0f, 1.0f, 1.0f, 1.0f);
 		GD.Print("Shot");
-		GD.Print(raycast.GetCollider());
+		if(raycast.IsColliding() &&  ((Node)raycast.GetCollider()).IsInGroup("enemies"))
+		{
+			Enemy body = (Enemy)raycast.GetCollider();
+			body.damage(10.0f);
+		}
 		return raycast.GetCollisionPoint();
 	}
 

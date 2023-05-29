@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape" id=1]
 
-[node name="Enemy" type="KinematicBody"]
+[node name="Enemy" type="KinematicBody" groups=["enemies"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
