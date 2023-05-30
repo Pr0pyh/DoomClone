@@ -6,9 +6,12 @@ public class Enemy : KinematicBody
 	[Export]
 	float speed;
 	[Export]
-	float health;
+	public float health;
+	float gunBonus;
 	
 	public bool hit;
+	[Export]
+	public bool fireRate;
 	AnimationPlayer animPlayer;
 	World world;
 	Timer t;
@@ -20,8 +23,11 @@ public class Enemy : KinematicBody
 		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		sprite = GetNode<Sprite3D>("Sprite3D");
 		t = GetNode<Timer>("Timer");
-		health = 100;
+		health = 100.0f;
 		hit = false;
+		gunBonus = 0.5f;
+		if(fireRate)
+			sprite.Modulate = new Color(255.0f, 0.0f, 0.0f, 1.0f);
 	}
 
 	public override void _Process(float delta)
@@ -35,18 +41,25 @@ public class Enemy : KinematicBody
 		MoveAndSlide(playerPosNorm * speed);
 	}
 
-	public void damage(float number)
+	public float damage(float number)
 	{
-		health -= number;
+		if(hit == false)
+		{
+			health -= number;
+			hit = true;
+		}
+
 		if(health<0)
 		{
 			animPlayer.Play("kill");
+			return gunBonus;
 		}
 		else
 		{
 			animPlayer.Play("hurt");
 			speed = 0;
 			t.Start();
+			return 0;
 		}
 	}
 
@@ -59,5 +72,6 @@ public class Enemy : KinematicBody
 	private void _on_Timer_timeout()
 	{
 		speed = 1;
+		hit = false;
 	}
 }

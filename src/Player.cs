@@ -57,7 +57,7 @@ public class Player : KinematicBody
 		moveVector.y = 0.0f;
 		moveVector = moveVector.Normalized();
 
-		if(Input.IsActionPressed("ui_accept"))
+		if(Input.IsActionPressed("ui_accept") && gun.canShoot)
 		{
 			Vector3 position = gun.Shoot();
 			// world.Spawn(position);

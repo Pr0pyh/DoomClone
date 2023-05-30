@@ -59,3 +59,7 @@ hframes = 4
 reset_on_save = false
 anims/RESET = SubResource( 2 )
 anims/shoot = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

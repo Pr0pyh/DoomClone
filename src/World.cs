@@ -12,7 +12,6 @@ public class World : Spatial
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		cube = GetNode<Sprite3D>("Sprite3D");
 		player = GetNode<Player>("Player");
 	}
 
