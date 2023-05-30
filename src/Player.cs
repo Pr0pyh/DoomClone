@@ -62,7 +62,6 @@ public class Player : KinematicBody
 			Vector3 position = gun.Shoot();
 			// world.Spawn(position);
 		}
-
 		//update
 
 		MoveAndSlide(moveVector*speed);

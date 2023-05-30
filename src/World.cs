@@ -6,6 +6,10 @@ public class World : Spatial
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
+	[Export]
+	public int number;
+	[Export]
+	PackedScene nextLevel;
 	Sprite3D cube;
 	Player player;
 
@@ -15,6 +19,12 @@ public class World : Spatial
 		player = GetNode<Player>("Player");
 	}
 
+	public void LowerNumber()
+	{
+		number--;
+		if(number <= 0)
+			GetTree().ChangeSceneTo(nextLevel);
+	}
 	// public void Spawn(Vector3 position)
 	// {
 	// 	cube.Translation = position;

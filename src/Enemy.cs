@@ -52,6 +52,7 @@ public class Enemy : KinematicBody
 		if(health<0)
 		{
 			animPlayer.Play("kill");
+			world.LowerNumber();
 			return gunBonus;
 		}
 		else
