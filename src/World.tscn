@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/World.cs" type="Script" id=2]
@@ -6,24 +6,11 @@
 [ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.215686, 0.14902, 0.14902, 1 )
 background_energy = 1.01
-ambient_light_color = Color( 0.333333, 0.329412, 0.329412, 1 )
+ambient_light_color = Color( 0.341176, 0.337255, 0.337255, 1 )
 ambient_light_sky_contribution = 0.0
-
-[sub_resource type="Animation" id=2]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Control/ColorRect:rect_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 500, 1080 ) ]
-}
 
 [sub_resource type="Animation" id=3]
 resource_name = "enter"
@@ -38,7 +25,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1920, 1080 ), Vector2( 1600, 1080 ), Vector2( 1000, 1080 ), Vector2( 500, 1080 ), Vector2( 0, 1080 ) ]
+"values": [ Vector2( 400, 220 ), Vector2( 300, 220 ), Vector2( 200, 220 ), Vector2( 100, 220 ), Vector2( 0, 220 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -54,7 +41,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 1080 ), Vector2( 500, 1080 ), Vector2( 1000, 1080 ), Vector2( 1500, 1080 ), Vector2( 1920, 1080 ) ]
+"values": [ Vector2( 0, 220 ), Vector2( 100, 220 ), Vector2( 200, 220 ), Vector2( 300, 220 ), Vector2( 400, 220 ) ]
 }
 
 [node name="World" type="Spatial"]
@@ -64,7 +51,7 @@ number = 10
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 speed = 10.0
-mouseSens = 0.1
+mouseSens = 0.3
 
 [node name="Enemies" type="Spatial" parent="."]
 
@@ -92,7 +79,6 @@ __meta__ = {
 environment = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 2 )
 anims/enter = SubResource( 3 )
 anims/exit = SubResource( 4 )
 
@@ -105,7 +91,6 @@ anchor_bottom = 1.0
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1420.0
 color = Color( 0, 0, 0, 1 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

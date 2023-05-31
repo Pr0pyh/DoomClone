@@ -20,12 +20,14 @@ MusicController="*res://src/musicController/MusicController.tscn"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=400
+window/size/height=220
 window/size/fullscreen=true
 window/size/test_width=1920
 window/size/test_height=1080
 window/vsync/use_vsync=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 

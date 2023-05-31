@@ -85,4 +85,13 @@ public class Enemy : KinematicBody
 		speed = 1;
 		hit = false;
 	}
+
+	public void _on_Area_body_entered(Node body)
+	{
+		if(body.GetType() == typeof(Player))
+		{
+			Player player = (Player)body;
+			player.damage(10.0f);
+		}
+	}
 }

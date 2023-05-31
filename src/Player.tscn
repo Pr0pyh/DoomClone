@@ -19,3 +19,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73625, 0 )
 
 [node name="Gun" parent="Camera" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0691574, 0 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.478431, 0.0156863, 0.0156863, 1 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

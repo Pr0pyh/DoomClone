@@ -7,6 +7,8 @@ public class Player : KinematicBody
 	float speed; 
 	[Export]
 	float mouseSens;
+	float health;
+	bool hit;
 	Vector3 moveVector;
 
 	//References to scene nodes
@@ -18,6 +20,9 @@ public class Player : KinematicBody
 		set {gun = value;}
 	}
 	World world;
+	Timer timer;
+	ColorRect colorRect;
+	Color color;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -26,6 +31,11 @@ public class Player : KinematicBody
 		camera = GetNode<Camera>("Camera");
 		gun = camera.GetNode<Gun>("Gun");
 		world = GetParent<World>();
+		timer = GetNode<Timer>("Timer");
+		colorRect = GetNode<CanvasLayer>("CanvasLayer").GetNode<ColorRect>("ColorRect");
+		colorRect.Color -= new Color(0.0f, 0.0f, 0.0f, 1.0f);
+		health = 20.0f;
+		hit = true;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
@@ -70,5 +80,27 @@ public class Player : KinematicBody
 		//update
 
 		MoveAndSlide(moveVector*speed);
+	}
+
+	public void damage(float number)
+	{
+		if(hit == true)
+		{
+			health -= number;
+			hit = false;
+			color = colorRect.Color;
+			colorRect.Color += new Color(0.0f, 0.0f, 0.0f, 0.7f);
+			timer.Start();
+		}
+
+		if(health < 0)
+			GetTree().ReloadCurrentScene();
+	}
+
+	public void _on_Timer_timeout()
+	{
+		hit = true;
+		colorRect.Color -= new Color(0.0f, 0.0f, 0.0f, 0.7f);
+		colorRect.Color = color + new Color(0.0f, 0.0f, 0.0f, 0.2f);
 	}
 }
