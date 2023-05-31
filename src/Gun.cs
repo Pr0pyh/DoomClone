@@ -37,26 +37,30 @@ public class Gun : Spatial
 		canShoot = false;
 		timer.WaitTime = gunFireRate;
 		timer.Start();
-		if(raycast.IsColliding() &&  ((Node)raycast.GetCollider()).IsInGroup("enemies"))
+		if(raycast.IsColliding() && ((Node)raycast.GetCollider()).IsInGroup("enemies"))
 		{
-			GD.Print("Enemy");
 			Enemy body = (Enemy)raycast.GetCollider();
 			float result = body.damage(gunDamage);
-			if(body.health < 0 && result != 0)
+			body.hit = true;
+			if(body.health < 0 && result != 0 && body.hit)
 			{
+				GD.Print("Enemy");
 				if(body.fireRate)
 				{
 					gunDamage *= 1.0f+result;
+					gunFireRate *= result+0.2f;
+					animPlayer.PlaybackSpeed -= 0.2f;
 					sprite.Modulate -= new Color(0.0f, 0.1f, 0.1f, 0.0f);
 				}
 				else
 				{
 					gunFireRate *= result-0.2f;
-					animPlayer.PlaybackSpeed += 0.5f;
+					gunDamage *= 1.0f-result;
+					animPlayer.PlaybackSpeed += 0.05f;
 					sprite.Modulate -= new Color(0.1f, 0.1f, 0.0f, 0.0f);
 				}
 			}
-			body.hit = true;
+			// body.hit = true;
 		}
 		return raycast.GetCollisionPoint();
 	}

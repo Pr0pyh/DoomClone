@@ -53,23 +53,26 @@ public class Enemy : KinematicBody
 		{
 			health -= number;
 			hit = true;
-		}
 
-		if(health<0)
-		{
-			animPlayer.Play("kill");
-			audioPlayer.Stream = killSound;
-			audioPlayer.Play();
-			world.LowerNumber();
-			return gunBonus;
+			if(health<0)
+			{
+				animPlayer.Play("kill");
+				audioPlayer.Stream = killSound;
+				audioPlayer.Play();
+				return gunBonus;
+			}
+			else
+			{
+				animPlayer.Play("hurt");
+				audioPlayer.Stream = hurtSound;
+				audioPlayer.Play();
+				speed = 0;
+				t.Start();
+				return 0;
+			}
 		}
 		else
 		{
-			animPlayer.Play("hurt");
-			audioPlayer.Stream = hurtSound;
-			audioPlayer.Play();
-			speed = 0;
-			t.Start();
 			return 0;
 		}
 	}
@@ -77,7 +80,10 @@ public class Enemy : KinematicBody
 	public void _on_AnimationPlayer_animation_finished(String animName)
 	{
 		if(animName == "kill")
+		{
 			QueueFree();
+			world.LowerNumber();
+		}
 	}
 	
 	private void _on_Timer_timeout()
