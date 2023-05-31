@@ -49,14 +49,12 @@ public class Gun : Spatial
 				{
 					gunDamage *= 1.0f+result;
 					gunFireRate *= result+0.2f;
-					animPlayer.PlaybackSpeed -= 0.2f;
 					sprite.Modulate -= new Color(0.0f, 0.1f, 0.1f, 0.0f);
 				}
 				else
 				{
 					gunFireRate *= result-0.2f;
 					gunDamage *= 1.0f-result;
-					animPlayer.PlaybackSpeed += 0.05f;
 					sprite.Modulate -= new Color(0.1f, 0.1f, 0.0f, 0.0f);
 				}
 			}
