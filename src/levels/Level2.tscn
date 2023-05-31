@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/World.tscn" type="PackedScene" id=1]
-[ext_resource path="res://gridmap.meshlib" type="MeshLibrary" id=2]
 [ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=3]
 
 [node name="Level2" instance=ExtResource( 1 )]
@@ -13,7 +12,3 @@ speed = 1.0
 [node name="Enemy4" parent="Enemies" index="3" instance=ExtResource( 3 )]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1, -9.29679, 3, 34.3918 )
 speed = 1.0
-
-[node name="GridMap" parent="." index="2"]
-mesh_library = ExtResource( 2 )
-cell_size = Vector3( 5, 5, 5 )

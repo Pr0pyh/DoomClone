@@ -1,23 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/gun.png" type="Texture" id=1]
 [ext_resource path="res://src/Gun.cs" type="Script" id=2]
 [ext_resource path="res://src/GunStats.tres" type="Resource" id=3]
-
-[sub_resource type="Animation" id=2]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Control/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1 ]
-}
 
 [sub_resource type="Animation" id=1]
 resource_name = "shoot"
@@ -52,14 +37,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/Control"]
-position = Vector2( 707, 425.59 )
-scale = Vector2( 0.716797, 0.685195 )
+position = Vector2( 1312, 775 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 1 )
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
-anims/RESET = SubResource( 2 )
 anims/shoot = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]

@@ -15,6 +15,9 @@ public class Enemy : KinematicBody
 	AnimationPlayer animPlayer;
 	World world;
 	Timer t;
+	AudioStreamPlayer3D audioPlayer;
+	AudioStream killSound;
+	AudioStream hurtSound;
 	Sprite3D sprite;
 
 	public override void _Ready()
@@ -23,6 +26,9 @@ public class Enemy : KinematicBody
 		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		sprite = GetNode<Sprite3D>("Sprite3D");
 		t = GetNode<Timer>("Timer");
+		audioPlayer = GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D");
+		hurtSound = (AudioStream)ResourceLoader.Load("res://assets/music/dspopain.wav");
+		killSound = (AudioStream)ResourceLoader.Load("res://assets/music/dsbgdth1.wav");
 		health = 100.0f;
 		hit = false;
 		gunBonus = 0.5f;
@@ -52,12 +58,16 @@ public class Enemy : KinematicBody
 		if(health<0)
 		{
 			animPlayer.Play("kill");
+			audioPlayer.Stream = killSound;
+			audioPlayer.Play();
 			world.LowerNumber();
 			return gunBonus;
 		}
 		else
 		{
 			animPlayer.Play("hurt");
+			audioPlayer.Stream = hurtSound;
+			audioPlayer.Play();
 			speed = 0;
 			t.Start();
 			return 0;

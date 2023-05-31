@@ -51,7 +51,8 @@ public class Gun : Spatial
 				}
 				else
 				{
-					gunFireRate *= result;
+					gunFireRate *= result-0.2f;
+					animPlayer.PlaybackSpeed += 0.5f;
 					sprite.Modulate -= new Color(0.1f, 0.1f, 0.0f, 0.0f);
 				}
 			}

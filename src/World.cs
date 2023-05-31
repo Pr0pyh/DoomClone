@@ -9,11 +9,14 @@ public class World : Spatial
 	PackedScene nextLevel;
 	Sprite3D cube;
 	Player player;
+	AnimationPlayer animPlayer;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		player = GetNode<Player>("Player");
+		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		animPlayer.Play("enter");
 	}
 
 	public void LowerNumber()
@@ -22,9 +25,15 @@ public class World : Spatial
 		if(number <= 0)
 		{
 			player.Gun.SaveStats();
-			GetTree().ChangeSceneTo(nextLevel);
+			animPlayer.Play("exit");
 		}
 			
+	}
+
+	public void _on_AnimationPlayer_animation_finished(String animName)
+	{
+		if(animName == "exit")
+			GetTree().ChangeSceneTo(nextLevel);
 	}
 	// public void Spawn(Vector3 position)
 	// {

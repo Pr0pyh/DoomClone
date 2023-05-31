@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Under_Earth_Fire_and_Sword_Royalty_Free_Music.mp3-51309700d1a6036d66e4a96fcb7b45e6.mp3str"
+
+[deps]
+
+source_file="res://src/musicController/Under_Earth_Fire_and_Sword_Royalty_Free_Music.mp3"
+dest_files=[ "res://.import/Under_Earth_Fire_and_Sword_Royalty_Free_Music.mp3-51309700d1a6036d66e4a96fcb7b45e6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
