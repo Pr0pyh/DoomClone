@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/andrej/Desktop/GodotProjekti/DoomClone/DoomClone.csproj": {}
+    "C:\\Users\\vuk\\Desktop\\DoomClone\\DoomClone.csproj": {}
   },
   "projects": {
-    "/home/andrej/Desktop/GodotProjekti/DoomClone/DoomClone.csproj": {
+    "C:\\Users\\vuk\\Desktop\\DoomClone\\DoomClone.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/andrej/Desktop/GodotProjekti/DoomClone/DoomClone.csproj",
+        "projectUniqueName": "C:\\Users\\vuk\\Desktop\\DoomClone\\DoomClone.csproj",
         "projectName": "DoomClone",
-        "projectPath": "/home/andrej/Desktop/GodotProjekti/DoomClone/DoomClone.csproj",
-        "packagesPath": "/home/andrej/.nuget/packages/",
-        "outputPath": "/home/andrej/Desktop/GodotProjekti/DoomClone/.mono/temp/obj/",
+        "projectPath": "C:\\Users\\vuk\\Desktop\\DoomClone\\DoomClone.csproj",
+        "packagesPath": "C:\\Users\\vuk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vuk\\Desktop\\DoomClone\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/andrej/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\vuk\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -41,11 +41,11 @@
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.0.2, )",
+              "version": "[1.0.3, )",
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.116/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

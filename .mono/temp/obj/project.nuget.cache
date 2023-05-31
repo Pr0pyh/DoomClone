@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8XfGuxouEjzcWWCzw6ZEgX8vo/Wc172up/yydh0lRVD7S4ZyhJ+hfhubc4snLfiPUX8cFLc3qViOd7piVRdpDA==",
+  "dgSpecHash": "c2j4vYC1Ol90e6E3XQSv5dcHuoC/5T1VmN2Mm5fi/WgOHtxyBIckBL64xdQ3jPo0+P1PhAk9n9k/R8sIOX6WuA==",
   "success": true,
-  "projectFilePath": "/home/andrej/Desktop/GodotProjekti/DoomClone/DoomClone.csproj",
+  "projectFilePath": "C:\\Users\\vuk\\Desktop\\DoomClone\\DoomClone.csproj",
   "expectedPackageFiles": [
-    "/home/andrej/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "/home/andrej/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.2/microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+    "C:\\Users\\vuk\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\vuk\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.3\\microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512"
   ],
   "logs": []
 }

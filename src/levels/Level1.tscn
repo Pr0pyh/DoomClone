@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/levels/Level2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Lamp.tscn" type="PackedScene" id=3]
 
 [node name="Level1" instance=ExtResource( 1 )]
 number = 2
@@ -15,3 +16,10 @@ data = {
 [node name="ColorRect" parent="CanvasLayer/Control" index="0"]
 margin_right = 500.0
 margin_bottom = 1080.0
+
+[node name="Lamp" parent="." index="6" instance=ExtResource( 3 )]
+transform = Transform( 0.00636153, 0, 0.999919, 0, 0.5, 0, -0.49996, 0, 0.0127231, -8.66392, 5.42073, 14.4575 )
+pixel_size = 0.0085
+
+[node name="Lamp2" parent="." index="7" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 9.7746, 5.3908, 14.3743 )
