@@ -3,9 +3,9 @@ using System;
 
 public class Gun : Spatial
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
+	[Export]
+	public Resource gunStats;
+	
 	public bool canShoot;
 	public float gunFireRate;
 	public float gunDamage;
@@ -21,8 +21,14 @@ public class Gun : Spatial
 		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		timer = GetNode<Timer>("Timer");
 		canShoot = true;
-		gunFireRate = 1.0f;
-		gunDamage = 50.0f;
+		//gunFireRate = 1.0f;
+		//gunDamage = 50.0f;
+		if (gunStats is GunStats stats)
+		{
+			gunFireRate = stats.gunFireRate;
+			gunDamage = stats.gunDamage; 
+			GD.Print($"Fire rate: {gunFireRate}, damage: {gunDamage}");
+		}
 	}
 
 	public Vector3 Shoot()
@@ -54,6 +60,15 @@ public class Gun : Spatial
 		return raycast.GetCollisionPoint();
 	}
 
+	public void SaveStats() 
+	{
+		if (gunStats is GunStats stats)
+		{
+			stats.gunFireRate = gunFireRate;
+			stats.gunDamage = gunDamage; 
+			GD.Print($"Fire rate: {stats.gunFireRate}, damage: {stats.gunDamage}");
+		}
+	}
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 	// public override void _Process(float delta)
 	// {

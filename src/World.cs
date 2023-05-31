@@ -3,9 +3,6 @@ using System;
 
 public class World : Spatial
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
 	[Export]
 	public int number;
 	[Export]
@@ -23,7 +20,11 @@ public class World : Spatial
 	{
 		number--;
 		if(number <= 0)
+		{
+			player.Gun.SaveStats();
 			GetTree().ChangeSceneTo(nextLevel);
+		}
+			
 	}
 	// public void Spawn(Vector3 position)
 	// {

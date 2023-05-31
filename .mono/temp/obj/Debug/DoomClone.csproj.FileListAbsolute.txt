@@ -25,3 +25,12 @@ C:/Users/vuk/Desktop/DoomClone/.mono/temp/bin/Debug/DoomClone.pdb
 /home/andrej/Desktop/GodotProjekti/DoomClone/.mono/temp/obj/Debug/DoomClone.csproj.CoreCompileInputs.cache
 /home/andrej/Desktop/GodotProjekti/DoomClone/.mono/temp/obj/Debug/DoomClone.dll
 /home/andrej/Desktop/GodotProjekti/DoomClone/.mono/temp/obj/Debug/DoomClone.pdb
+C:\Users\vuk\Desktop\DoomClone\.mono\temp\obj\Debug\DoomClone.csproj.AssemblyReference.cache
+C:\Users\vuk\Desktop\DoomClone\.mono\temp\obj\Debug\DoomClone.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vuk\Desktop\DoomClone\.mono\temp\obj\Debug\DoomClone.AssemblyInfoInputs.cache
+C:\Users\vuk\Desktop\DoomClone\.mono\temp\obj\Debug\DoomClone.AssemblyInfo.cs
+C:\Users\vuk\Desktop\DoomClone\.mono\temp\obj\Debug\DoomClone.csproj.CoreCompileInputs.cache
+C:\Users\vuk\Desktop\DoomClone\.mono\temp\obj\Debug\DoomClone.dll
+C:\Users\vuk\Desktop\DoomClone\.mono\temp\obj\Debug\DoomClone.pdb
+C:\Users\vuk\Desktop\DoomClone\.mono\temp\bin\Debug\DoomClone.dll
+C:\Users\vuk\Desktop\DoomClone\.mono\temp\bin\Debug\DoomClone.pdb

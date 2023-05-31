@@ -12,6 +12,11 @@ public class Player : KinematicBody
 	//References to scene nodes
 	Camera camera;
 	Gun gun;
+	public Gun Gun 
+	{
+		get {return gun;}
+		set {gun = value;}
+	}
 	World world;
 
 	// Called when the node enters the scene tree for the first time.
