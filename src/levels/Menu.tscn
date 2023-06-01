@@ -22,11 +22,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -28.5
-margin_top = -10.0
-margin_right = 28.5
-margin_bottom = 10.0
+margin_left = -64.0
+margin_top = -9.0
+margin_right = 63.0
+margin_bottom = 34.0
 theme = ExtResource( 1 )
 text = "START"
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 32.0
+margin_top = 1.0
+margin_right = 371.0
+margin_bottom = 101.0
+grow_vertical = 0
+theme = ExtResource( 1 )
+text = "Doom Ascension"
+align = 1
+valign = 1
+uppercase = true
 
 [connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]

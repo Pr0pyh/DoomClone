@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Lamp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/music/rei sings u fly me to the moon [not 10 hours].mp3" type="AudioStream" id=3]
 [ext_resource path="res://src/levels/end.cs" type="Script" id=4]
+[ext_resource path="res://src/levels/new scene.tscn" type="PackedScene" id=5]
 
 [node name="End" instance=ExtResource( 1 )]
 
@@ -46,6 +47,8 @@ autoplay = true
 [node name="Timer" type="Timer" parent="." index="8"]
 wait_time = 50.0
 autostart = true
+
+[node name="CanvasLayer2" parent="." index="9" instance=ExtResource( 5 )]
 
 [connection signal="finished" from="Lamp9/AudioStreamPlayer3D" to="Spatial" method="_on_AudioStreamPlayer3D_finished"]
 [connection signal="timeout" from="Timer" to="Spatial" method="_on_Timer_timeout"]

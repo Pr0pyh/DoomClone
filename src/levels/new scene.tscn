@@ -117,7 +117,7 @@ script = ExtResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.27451, 0.227451, 0.227451, 1 )
+color = Color( 0.27451, 0.227451, 0.227451, 0 )
 
 [node name="Label" type="Label" parent="Control"]
 anchor_left = 0.5
@@ -125,9 +125,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -50.0
-margin_top = -27.0
-margin_right = 50.0
-margin_bottom = 27.0
+margin_top = -65.0
+margin_right = 51.0
+margin_bottom = -9.0
 theme = ExtResource( 1 )
 text = "E"
 align = 1
@@ -139,9 +139,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -61.0
-margin_top = -85.0
+margin_top = -126.0
 margin_right = 62.0
-margin_bottom = -69.0
+margin_bottom = -107.0
 align = 1
 valign = 1
 
@@ -151,9 +151,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -62.0
-margin_top = -61.0
+margin_top = -94.0
 margin_right = 61.0
-margin_bottom = -45.0
+margin_bottom = -72.0
 text = "Vuk Amidzic"
 align = 1
 valign = 1
@@ -163,23 +163,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -61.0
-margin_top = -41.0
-margin_right = 62.0
-margin_bottom = -25.0
+margin_left = -70.0
+margin_top = -70.0
+margin_right = 58.0
+margin_bottom = -49.0
 align = 1
 valign = 1
-
-[node name="Button" type="Button" parent="Control"]
-margin_left = 18.0
-margin_top = 10.0
-margin_right = 58.0
-margin_bottom = 28.0
-text = "exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "ending"
 anims/RESET = SubResource( 2 )
 anims/ending = SubResource( 1 )
-
-[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
