@@ -1,0 +1,185 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/MinimalUI.tres" type="Theme" id=1]
+[ext_resource path="res://src/levels/final.cs" type="Script" id=2]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "E" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/Label2:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/Label3:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Vuk Amidzic" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/Label4:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "" ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "ending"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "", "E", "EN", "END", "ENDI", "ENDIN", "ENDING" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/Label2:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ "", "", "Game made by:" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/Label3:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ "", "", "Vuk Amidzic" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/Label4:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ "", "", "Andrej Drmanovic" ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.27451, 0.227451, 0.227451, 1 )
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -27.0
+margin_right = 50.0
+margin_bottom = 27.0
+theme = ExtResource( 1 )
+text = "E"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -61.0
+margin_top = -85.0
+margin_right = 62.0
+margin_bottom = -69.0
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -61.0
+margin_right = 61.0
+margin_bottom = -45.0
+text = "Vuk Amidzic"
+align = 1
+valign = 1
+
+[node name="Label4" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -61.0
+margin_top = -41.0
+margin_right = 62.0
+margin_bottom = -25.0
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="Control"]
+margin_left = 18.0
+margin_top = 10.0
+margin_right = 58.0
+margin_bottom = 28.0
+text = "exit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ending"
+anims/RESET = SubResource( 2 )
+anims/ending = SubResource( 1 )
+
+[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]

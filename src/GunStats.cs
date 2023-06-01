@@ -6,4 +6,6 @@ public class GunStats : Resource
 	public float gunFireRate;
 	[Export]
 	public float gunDamage;
+	[Export]
+	public Color gunModulate;
 }

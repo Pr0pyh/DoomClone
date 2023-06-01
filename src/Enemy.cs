@@ -7,6 +7,12 @@ public class Enemy : KinematicBody
 	float speed;
 	[Export]
 	public float health;
+	[Export]
+	public String diePath;
+	[Export]
+	public String hurtPath;
+	[Export]
+	public bool killable;
 	float gunBonus;
 	
 	public bool hit;
@@ -19,6 +25,7 @@ public class Enemy : KinematicBody
 	AudioStream killSound;
 	AudioStream hurtSound;
 	Sprite3D sprite;
+	CollisionShape collision;
 
 	public override void _Ready()
 	{
@@ -27,11 +34,12 @@ public class Enemy : KinematicBody
 		sprite = GetNode<Sprite3D>("Sprite3D");
 		t = GetNode<Timer>("Timer");
 		audioPlayer = GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D");
-		hurtSound = (AudioStream)ResourceLoader.Load("res://assets/music/dspopain.wav");
-		killSound = (AudioStream)ResourceLoader.Load("res://assets/music/dsbgdth1.wav");
+		collision = GetNode<CollisionShape>("CollisionShape");
+		hurtSound = (AudioStream)ResourceLoader.Load(hurtPath);
+		killSound = (AudioStream)ResourceLoader.Load(diePath);
 		health = 100.0f;
 		hit = false;
-		gunBonus = 0.5f;
+		gunBonus = 20.0f;
 		if(fireRate)
 			sprite.Modulate = new Color(255.0f, 0.0f, 0.0f, 1.0f);
 	}
@@ -49,13 +57,14 @@ public class Enemy : KinematicBody
 
 	public float damage(float number)
 	{
-		if(hit == false)
+		if(hit == false && killable)
 		{
 			health -= number;
 			hit = true;
 
 			if(health<0)
 			{
+				collision.Disabled = true;
 				animPlayer.Play("kill");
 				audioPlayer.Stream = killSound;
 				audioPlayer.Play();

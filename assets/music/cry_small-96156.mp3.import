@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cry_small-96156.mp3-5dbfb755741301ba5e8ab5fcc43e1595.mp3str"
+
+[deps]
+
+source_file="res://assets/music/cry_small-96156.mp3"
+dest_files=[ "res://.import/cry_small-96156.mp3-5dbfb755741301ba5e8ab5fcc43e1595.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

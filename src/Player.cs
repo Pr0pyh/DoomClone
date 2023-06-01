@@ -9,7 +9,7 @@ public class Player : KinematicBody
 	float mouseSens;
 	float health;
 	bool hit;
-	Vector3 moveVector;
+	public Vector3 moveVector;
 
 	//References to scene nodes
 	Camera camera;
@@ -23,6 +23,7 @@ public class Player : KinematicBody
 	Timer timer;
 	ColorRect colorRect;
 	Color color;
+	Label label;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -33,6 +34,8 @@ public class Player : KinematicBody
 		world = GetParent<World>();
 		timer = GetNode<Timer>("Timer");
 		colorRect = GetNode<CanvasLayer>("CanvasLayer").GetNode<ColorRect>("ColorRect");
+		label = GetNode<CanvasLayer>("CanvasLayer").GetNode<Label>("Label");
+		label.Visible = false;
 		colorRect.Color -= new Color(0.0f, 0.0f, 0.0f, 1.0f);
 		health = 20.0f;
 		hit = true;
@@ -53,7 +56,20 @@ public class Player : KinematicBody
 	public override void _Process(float delta)
 	{
 		if(Input.IsActionPressed("ui_cancel"))
+		{
+			// label.Visible = true;
+			// GetTree().Paused = true;
 			GetTree().Quit();
+		}
+
+		// if(Input.IsActionPressed("ui_accept") && GetTree().Paused)
+		// 	GetTree().Quit();
+
+		// if(Input.IsActionPressed("ui_cancel") && GetTree().Paused)
+		// {
+		// 	GetTree().Paused = false;
+		// 	label.Visible = false;
+		// }
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

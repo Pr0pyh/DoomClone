@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/rei sings u fly me to the moon [not 10 hours].mp3-ba68df5b7f5e6f4b63bddbbf1e0b6630.mp3str"
+
+[deps]
+
+source_file="res://assets/music/rei sings u fly me to the moon [not 10 hours].mp3"
+dest_files=[ "res://.import/rei sings u fly me to the moon [not 10 hours].mp3-ba68df5b7f5e6f4b63bddbbf1e0b6630.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

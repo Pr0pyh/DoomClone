@@ -11,8 +11,12 @@ public class Gun : Spatial
 	public float gunDamage;
 	Sprite sprite;
 	RayCast raycast;
-	AnimationPlayer animPlayer;
+	public AnimationPlayer animPlayer;
 	Timer timer;
+	Player player;
+	AudioStreamPlayer audioPlayer;
+	AudioStream gunCock;
+	AudioStream gunShot;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -20,13 +24,20 @@ public class Gun : Spatial
 		raycast = GetNode<RayCast>("RayCast");
 		animPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		timer = GetNode<Timer>("Timer");
+		player = GetParent().GetParent<Player>();
+		audioPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+		gunCock = (AudioStream)ResourceLoader.Load("res://assets/music/GunCockSingle PE1096303.mp3");
+		gunShot = (AudioStream)ResourceLoader.Load("res://assets/music/GunShotSnglFireIn PE1097304.mp3");
 		canShoot = true;
+		audioPlayer.Stream = gunCock;
+		audioPlayer.Play();
 		//gunFireRate = 1.0f;
 		//gunDamage = 50.0f;
 		if (gunStats is GunStats stats)
 		{
 			gunFireRate = stats.gunFireRate;
-			gunDamage = stats.gunDamage; 
+			gunDamage = stats.gunDamage;
+			sprite.Modulate = stats.gunModulate; 
 			GD.Print($"Fire rate: {gunFireRate}, damage: {gunDamage}");
 		}
 	}
@@ -34,6 +45,8 @@ public class Gun : Spatial
 	public Vector3 Shoot()
 	{
 		animPlayer.Play("shoot");
+		audioPlayer.Stream = gunShot;
+		audioPlayer.Play();
 		canShoot = false;
 		timer.WaitTime = gunFireRate;
 		timer.Start();
@@ -47,15 +60,15 @@ public class Gun : Spatial
 				GD.Print("Enemy");
 				if(body.fireRate)
 				{
-					gunDamage *= 1.0f+result;
-					gunFireRate *= result+0.2f;
-					sprite.Modulate -= new Color(0.0f, 0.1f, 0.1f, 0.0f);
+					gunDamage = Mathf.Clamp(gunDamage + result, 40.0f, 120.0f);
+					gunFireRate = Mathf.Clamp(result/100.0f+gunFireRate, 0.3f, 2.0f);
+					sprite.Modulate -= new Color(-0.2f, 0.2f, 0.2f, 0.0f);
 				}
 				else
 				{
-					gunFireRate *= result-0.2f;
-					gunDamage *= 1.0f-result;
-					sprite.Modulate -= new Color(0.1f, 0.1f, 0.0f, 0.0f);
+					gunFireRate = Mathf.Clamp(result/100.0f-gunFireRate, 0.3f, 2.0f);
+					gunDamage = Mathf.Clamp(gunDamage - result, 40.0f, 120.0f);
+					sprite.Modulate -= new Color(0.2f, 0.2f, -0.2f, 0.0f);
 				}
 			}
 			// body.hit = true;
@@ -69,15 +82,18 @@ public class Gun : Spatial
 		{
 			stats.gunFireRate = gunFireRate;
 			stats.gunDamage = gunDamage; 
+			stats.gunModulate = sprite.Modulate; 
 			GD.Print($"Fire rate: {stats.gunFireRate}, damage: {stats.gunDamage}");
 		}
 	}
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-	// public override void _Process(float delta)
-	// {
-	// 	if(raycast.IsColliding())
-	// 		GD.Print(raycast.GetCollider());
-	// }
+	public override void _Process(float delta)
+	{
+		if(player.moveVector != new Vector3(0.0f, 0.0f, 0.0f) && !animPlayer.IsPlaying())
+			animPlayer.Play("walk");
+		// else if(!animPlayer.IsPlaying())
+		// 	animPlayer.Stop();
+	}
 
 	public void _on_Timer_timeout()
 	{

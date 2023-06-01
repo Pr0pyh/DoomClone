@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GunCockSingle PE1096303.mp3-69ce5be3a49a53bc3823a3c0b9bef297.mp3str"
+
+[deps]
+
+source_file="res://assets/music/GunCockSingle PE1096303.mp3"
+dest_files=[ "res://.import/GunCockSingle PE1096303.mp3-69ce5be3a49a53bc3823a3c0b9bef297.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 gunFireRate = 1.0
 gunDamage = 50.0
+gunModulate = Color( 1, 1, 1, 1 )
