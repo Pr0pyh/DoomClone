@@ -22,7 +22,7 @@ public class end : Spatial
 	public void _on_Timer_timeout()
 	{
 		PackedScene nextLevel = (PackedScene)ResourceLoader.Load("res://src/levels/new scene.tscn");
-		GetTree().ChangeSceneTo(nextLevel);
+		GetTree().Quit();
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
